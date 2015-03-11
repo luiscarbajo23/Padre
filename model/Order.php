@@ -1,16 +1,39 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  * Description of Order
  *
- * @author LuisCarbajo
+ * @author Luis
  */
 class Order {
-    //put your code here
+    
+    private $idOrder;
+    private $idClient;
+    private $date;
+    
+    
+    
+    public function getIDOrder() {
+        return $this->idOrder;
+    }
+    
+    public function setIDOrder( $value ) {
+        $this->idOrder = $value;
+    }
+    
+    public function getIDClient() {
+        return $this->idClient;
+    }
+    
+    public function setIDClient( $value ) {
+        $this->idClient = $value;
+    }
+    
+    public function getDate() {
+        return $this->date;
+    }
+    
+    public function setDate( $value ) {
+        $this->date = $value;
+    }
 }

@@ -12,5 +12,19 @@
  * @author LuisCarbajo
  */
 class ModelController {
-    //put your code here
+    
+    private static $modelController;
+    
+       
+    private function __construct() {}
+     
+    public function  getInstance() {
+       
+       if (is_null($this)) {
+           $this->modelController = new ModelController();
+       }
+       
+       return $this->modelController;
+   }
+    
 }

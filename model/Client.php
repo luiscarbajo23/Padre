@@ -9,8 +9,28 @@
 /**
  * Description of Client
  *
- * @author LuisCarbajo
+ * @author Luis
  */
 class Client {
-    //put your code here
+    
+    private $idClient;
+    private $name;
+    
+    public function __construct() {}
+    
+    public function getIDClient() {
+        return $this->idClient;
+    }
+    
+    public function setIDClient($value) {
+        $this->idClient = $value;
+    }
+    
+    public function getName() {
+        return $this->name;
+    }
+    
+    public function setName( $value ) {
+        $this->name = $value;
+    }
 }
