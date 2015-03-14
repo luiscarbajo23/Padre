@@ -39,6 +39,7 @@ class Login {
        require_once dirname(__DIR__) . '/config/config.php';
        require_once dirname(__DIR__) . '/config/variables.php';
        
+       echo $VIEWS_PATH;
        require_once $VIEWS_PATH . 'login.php';
    }
 }
