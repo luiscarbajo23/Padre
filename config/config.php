@@ -12,10 +12,7 @@ global $config;
 $config = array();
 
 $config["http_protocol"] = "http://";
-$config["URL"] = $config . "metaleris.com/";
-
-
-
+$config["URL"] = $config . "metaleris.com";
 
 
 
