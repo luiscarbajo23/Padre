@@ -33,13 +33,14 @@ class Login {
        }
    }
    
-   public function index() {
+   public static function index() {
        
-       require_once __DIR__ . '/config/config.php';
-       require_once __DIR__ . '/config/variables.php';
+       
+       require_once dirname(__DIR__) . '/config/config.php';
+       require_once dirname(__DIR__) . '/config/variables.php';
        
        require_once $VIEWS_PATH . 'login.php';
-       
-       
    }
 }
+
+Login::index();

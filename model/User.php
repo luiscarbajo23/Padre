@@ -41,6 +41,7 @@ class User {
     public function getPassword () {
         
         if (is_null($this->password) && !is_null($this->getUsername())) {
+           
             require_once $DATA_PATH . 'DataUser.php';
             $this->dataUser = new DataUser();
             
@@ -50,6 +51,9 @@ class User {
                 throw $ex;
                 return;
             }
+            
+            $this->setPassword($passAux);
+            return $passAux; 
             
         }
         
