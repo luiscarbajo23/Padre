@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Description of LoginController
+ * Description of Login
  *
  * @author Luis
  */
-class LoginController {
+class Login {
    
         
     public function __construct() {
@@ -14,7 +14,7 @@ class LoginController {
         $_SESSION["authorized"] = -1;
     }
     
-   public function index () {
+   public function checkPassword () {
        
        $username = $_POST["parameterOne"];
        $pass = $_POST["parameterTwo"];
@@ -25,11 +25,21 @@ class LoginController {
            
            $_SESSION["authorized"] = 1;
            
-           //TO-DO Load the Main View
+           //TO-DO Redirect to MainPage
            
        }
        else { //get back to login
            //TO-DO Load the login view again
        }
+   }
+   
+   public function index() {
+       
+       require_once __DIR__ . '/config/config.php';
+       require_once __DIR__ . '/config/variables.php';
+       
+       require_once $VIEWS_PATH . 'login.php';
+       
+       
    }
 }
