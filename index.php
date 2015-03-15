@@ -1,27 +1,33 @@
 <?php
 
 require_once __DIR__ . '/config/variables.php';
-require_once $CONFIG_PATH . $CONFIG_FILE;
+require_once CONFIG_PATH . CONFIG_FILE;
 
 
 if (empty($_GET["controller"]) || empty($_GET["method"])) { //Nothing in $_GET, redirect to login
     
-    require_once $VIEWS_PATH .'login.php';  
+    require_once VIEWS_PATH .'login.php';  
 }
 else {
     
-    $regex = "/^([a-zA-z]+)/";
-        
-    preg_match($regex, $_GET["controller"], $controller);
-    preg_match($regex, $_GET["method"], $method);
+    $regex = "/^([a-zA-z]+)$/";
     
-    echo "ESTO LLEGA = ";    print_r($controller);    print_r($method);
-    require_once $CONTROLLERS_PATH . $controller[0] . ".php" ;
+   $controller = filter_input(INPUT_GET, "controller");
+   $method = filter_input(INPUT_GET, "method");
+
+   preg_match($regex, $controller, $controller);
+   preg_match($regex, $method, $method);
+   
+    $controllerToLoad = $controller[0];
+    $methodToCall = $method[0];
+
+    require_once CONTROLLERS_PATH . $controllerToLoad . ".php" ;
     
-    $class = "Class".$controller[0];
-    $controllerInstanced = new $class();
+    $controllerInstanced = new $controllerToLoad;
     
-    $controllerInstanced ->$method[0]();
+    $controllerInstanced ->$methodToCall();
+    
+    
     
 }
 

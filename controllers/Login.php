@@ -5,11 +5,16 @@
  *
  * @author Luis
  */
+
+
+
 class Login {
-   
+
+
         
     public function __construct() {
-        include_once '$MODEL_PATH' . "User" . ".php";
+        
+        include_once MODEL_PATH . SEPARATOR . "User" . ".php";
         
         $_SESSION["authorized"] = -1;
     }
@@ -33,12 +38,9 @@ class Login {
        }
    }
    
-   public static function index() {
+   public function index() {
        
-       
-       require_once dirname(__DIR__) . '/config/config.php';
-       require_once dirname(__DIR__) . '/config/variables.php';
-       
-       require_once $VIEWS_PATH . 'login.php';
+
+       require_once VIEWS_PATH . 'login.php';
    }
 }
