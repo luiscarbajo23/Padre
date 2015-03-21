@@ -42,25 +42,32 @@ class User {
         
         if (is_null($this->password) && !is_null($this->getUsername())) {
            
-            require_once $DATA_PATH . 'DataUser.php';
+            require_once DATA_PATH . 'DataUser.php';
             $this->dataUser = new DataUser();
             
             try {
                 $passAux = $this->dataUser->DataGetPassword($this->getUsername());
             } catch (Exception $ex) {
                 throw $ex;
-                return;
+                
             }
             
             $this->setPassword($passAux);
+            
             return $passAux; 
             
         }
-        
+        //This password was seted before
         return $this->password;
     }
     
     public function setPassword ($value) {
         $this->password = $value;
+    }
+    
+    public function checkPassword ($password) {
+        
+        if ($this->getPassword() == $password) return TRUE;
+        throw new Exception(PASS_FAIL, -1, NULL);
     }
 }

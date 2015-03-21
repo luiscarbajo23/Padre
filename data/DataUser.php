@@ -6,7 +6,7 @@
  * @author Luis
  */
 
-require_once $CONFIG_PATH . 'database.php';
+
 
 
 class DataUser {
@@ -14,13 +14,17 @@ class DataUser {
     
     public function DataGetPassword($username) {
         
+        require_once CONFIG_PATH . 'database.php';
+        
         $mysql_link = mysql_connect($db["server"], $db["username"], $db["password"]);
         
         if (!$mysql_link) {
             throw new Exception("Database Connection Failed",-1);
         }
         
-        $query = "";
+        $query = " SELECT password 
+                        FROM users 
+                        WHERE username = '$username';";
         
         try {
             $result = mysql_db_query($db["database"], $query, $mysql_link);
@@ -30,9 +34,9 @@ class DataUser {
         
         mysql_close($mysql_link);
         
-        //TO-DO Transform result object (maybe fetch_array)
+        $result = mysql_fetch_array($result, MYSQL_NUM);
         
-        return $result;
+        return $result[0];
     }
     
 }

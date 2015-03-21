@@ -5,17 +5,18 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
-<body>
-<h2 style="text-align: center;"><span style="font-size:36px;">Metaleris</span></h2>
-
-<form action="index2.php" enctype="text/plain" method="POST" name="login">
-    
+    <head>
+    </head>
+    <body onload="document.thisform.firstname.focus()">
     <div style="text-align: center;">
-        <p style="text-align: center;">User:<input maxlength="10" id="Parameter1" name="Parameter1" type="text" /></p>
-        <p style="text-align: center;">Password:<input maxlength="10" id="Parameter2" name="Parameter2" type="password" /></p>
-        <input type="submit" name="submit">
+        <h1>Metaleris</h1>
+        <div>
+            <form name="thisform" action="/Login/checkPassword" method="post">
+                <?php echo USER_VIEW; ?>: <input type="text" tabindex=1 name="Parameter1" /><br>
+                <?php echo PASSWORD_VIEW; ?>: <input type="password" tabindex=2 name="Parameter2" /><br>    
+                <input type="submit" name="submit" tabindex=3 value="<?php echo SUBMIT_VIEW; ?>" />
+            </form>
+        </div>
     </div>
-</form>
-</body>
 </html>
 

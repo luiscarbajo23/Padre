@@ -10,7 +10,11 @@ define("VIEWS_PATH", dirname(__DIR__) . SEPARATOR . "views" . SEPARATOR);
 
 //FILES
 define ("CONFIG_FILE","config.php");
+define ("TEXT_FILE","text.php");
 
 
 //Define controller names
 define ("LOGIN_CONTROLLER", "Login");
+
+
+require_once TEXT_FILE;

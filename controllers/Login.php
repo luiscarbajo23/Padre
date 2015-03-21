@@ -21,26 +21,26 @@ class Login {
     
    public function checkPassword () {
        
-       $username = $_POST["Parameter1"];
-       $pass = $_POST["Parameter2"];
-       
-       echo "<pre>CheckPassword<br>";
-       var_dump($_POST);
-       var_dump($username);
-       var_dump($pass);
-       //die();
+       $username = filter_input(INPUT_POST, "Parameter1");
+       $pass = filter_input(INPUT_POST, "Parameter2");
        
        $user = new User();
+       $user->setUsername($username);
+       $user->getPassword();
        
-       if ($user->checkPassword($username, hash("sha512",$pass))) {
-           
-           $_SESSION["authorized"] = 1;
-           
-           //TO-DO Redirect to MainPage
-           
-       }
-       else { //get back to login
-           //TO-DO Load the login view again
+       try {
+            if ($this->try_regex($username,$pass) && $user->checkPassword(hash("sha512",$pass))) {
+
+                 $_SESSION["authorized"] = 1;
+                 echo "Entramos en la pantalla principal";
+                 //TO-DO Redirect to MainPage
+
+             }
+       } catch (Exception $ex) {
+            
+            echo "ERROR: " . $ex->getMessage();
+            require_once VIEWS_PATH . 'login.php';
+            return;
        }
    }
    
@@ -48,5 +48,18 @@ class Login {
        
 
        require_once VIEWS_PATH . 'login.php';
+   }
+   
+   
+   private function try_regex($username, $pass) {
+       
+       
+        $regex = "/^([a-zA-z0-9]+)$/";
+       
+        preg_match($regex, $username, $usernameRegex);
+        preg_match($regex, $pass, $passRegex); 
+        
+        if ($username == $usernameRegex[0] && $pass == $passRegex[0]) return true;
+        throw new Exception(REGEX_FAIL, -1, NULL);
    }
 }
