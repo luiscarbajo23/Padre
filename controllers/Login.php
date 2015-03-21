@@ -21,8 +21,14 @@ class Login {
     
    public function checkPassword () {
        
-       $username = $_POST["parameterOne"];
-       $pass = $_POST["parameterTwo"];
+       $username = $_POST["Parameter1"];
+       $pass = $_POST["Parameter2"];
+       
+       echo "<pre>CheckPassword<br>";
+       var_dump($_POST);
+       var_dump($username);
+       var_dump($pass);
+       //die();
        
        $user = new User();
        
