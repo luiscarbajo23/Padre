@@ -1,8 +1,10 @@
 <?php
 
-$language = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
-$language = substr( $language, 0, 2);
-
+if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) $language = "en";
+else {
+    $language = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+    $language = substr($language, 0, 2);
+}
 
 switch ($language) {
     case "es":
