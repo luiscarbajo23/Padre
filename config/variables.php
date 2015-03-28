@@ -17,7 +17,8 @@ define ("TEXT_FILE","text.php");
 
 
 //Define controller names
-define ("LOGIN_CONTROLLER", "Login");
+define("LOGIN_CONTROLLER", "Login");
+define("MAINPAGE_CONTROLLER", "MainPage");
 
 
 require_once TEXT_FILE;

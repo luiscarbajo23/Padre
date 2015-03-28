@@ -33,7 +33,7 @@ class Login {
 
                  $_SESSION["authorized"] = 1;
                  echo "Entramos en la pantalla principal";
-                 //TO-DO Redirect to MainPage
+                 $this->startMainPage();
 
              }
        } catch (Exception $ex) {
@@ -48,6 +48,12 @@ class Login {
        
 
        require_once VIEWS_PATH . 'login.php';
+   }
+   
+   private function startMainPage () {
+       
+       header("Location: " . URL . SEPARATOR . MAINPAGE_CONTROLLER . SEPARATOR . "index");
+       
    }
    
    
