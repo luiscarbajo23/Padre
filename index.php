@@ -3,6 +3,8 @@
 require_once __DIR__ . '/config/variables.php';
 require_once CONFIG_PATH . CONFIG_FILE;
 
+session_start();
+
     
 if (!empty($_GET["controller"]) && !empty($_GET["method"])) {
     

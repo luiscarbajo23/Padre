@@ -16,7 +16,14 @@ class Client {
     private $idClient;
     private $name;
     
-    public function __construct() {}
+    
+    public function __construct($idClient, $name) {
+        
+        $this->idClient = $idClient;
+        $this->name = $name;
+        
+        return $this;
+    }
     
     public function getIDClient() {
         return $this->idClient;
@@ -33,4 +40,6 @@ class Client {
     public function setName( $value ) {
         $this->name = $value;
     }
+    
+    
 }

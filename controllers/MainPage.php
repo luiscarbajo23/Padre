@@ -13,10 +13,17 @@ class MainPage {
     
     public function index() {
         
-        if (filter_input(INPUT_SESSION, "authorized") == -1) {echo NOT_AUTHORIZED; die();}
+        
+        if ($_SESSION["authorized"] != 1) {echo NOT_AUTHORIZED; die();}
         else {
+
+            require_once MODEL_PATH . 'ClientList.php';
             
-            require_once VIEWS_PATH . "mainpage.php";
+            $clientList = new ClientList();
+            
+            $clientList->loadClientList();
+
+            //require_once VIEWS_PATH . "mainpage.php";
         }
         
     }
