@@ -12,17 +12,11 @@
  * @author Luis
  */
 
-class DataClient {
+include_once DATA_PATH . 'AbstractData.php';
+
+class DataClient extends AbstractData{
    
     public static function loadClientList() {
-        
-        require_once CONFIG_PATH . 'database.php';
-        
-        $mysql_link = mysql_connect($db["server"], $db["username"], $db["password"]);
-        
-        if (!$mysql_link) {
-            throw new Exception("Database Connection Failed",-1);
-        }
         
         $query = " SELECT client_id as ID, name
                         FROM clients
@@ -31,26 +25,43 @@ class DataClient {
         
         
         try {
-            $result = mysql_db_query($db["database"], $query, $mysql_link);
+            $mysql_info = DataClient::initializeDB();
+            
+            $result = mysql_db_query($mysql_info["db"]["database"], $query, $mysql_info["mysql_link"]);
            
         } catch (Exception $ex) {
             throw new Exception($ex->getMessage(), $ex->getCode());
         }
         
-        mysql_close($mysql_link);
+        DataClient::closeDB($mysql_info["mysql_link"]);
         
-        $result1 = mysql_fetch_array($result, MYSQL_BOTH);
-        $result2 = mysql_fetch_row($result);
-        $result3 = mysql_fetch_field($result);
-        $result4 = mysql_fetch_array($result, MYSQL_ASSOC);
-     //   $result5 = mysql_($result);
-        //$result = mysql_fetch_array($result, MYSQL_NUM);
-        echo "<pre>";
-        var_dump($result1);
-        print_r($result2);
-        print_r($result3);
-        print_r($result4);
-        //print_r($result5);
-        die();
+        $clientsArray = DataClient::getAllInfo($result);
+              
+        return $clientsArray;
     }
+
+       
+    protected function initializeDB() {
+        
+        require_once CONFIG_PATH . 'database.php';
+        
+        $mysql_info = [];
+        
+        $mysql_info["db"] =  $db;
+        
+        $mysql_link = mysql_connect($db["server"], $db["username"], $db["password"]);
+        
+        if (!$mysql_link) {
+            throw new Exception("Database Connection Failed",-1);
+        }
+        
+        $mysql_info["mysql_link"] = $mysql_link;
+        
+        return $mysql_info;
+    }
+
+    protected function closeDB($mysql_link) {
+        mysql_close($mysql_link);
+    }
+
 }

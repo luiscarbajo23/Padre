@@ -27,13 +27,21 @@ class ClientList {
     
     public function loadClientList() {
         
-        $auxArray = DataClient::loadClientList() ;
-        
-        for ($i = 0; $i < sizeof($auxArray); $i += 2) {
-            array_push($this->clientsList, new Client($auxArray[i], $auxArray[i+1]));
+        try {
+            $auxArray = DataClient::loadClientList();
+            
+        } catch (Exception $ex) {
+            throw new Exception($ex->getMessage(), $ex->getCode(), $ex);
         }
         
+        foreach ($auxArray as $client) {
+            
+            array_push($this->clientsList, new Client($client[0], $client[1]));
+            
+        }   
+        
+        echo "<pre>";
+        print_r($this->clientsList);
+        die();
     }
-    
-   
 }
