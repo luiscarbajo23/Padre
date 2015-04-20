@@ -38,10 +38,6 @@ class ClientList {
             
             array_push($this->clientsList, new Client($client[0], $client[1]));
             
-        }   
-        
-        echo "<pre>";
-        print_r($this->clientsList);
-        die();
+        }  
     }
 }

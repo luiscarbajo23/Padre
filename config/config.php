@@ -9,7 +9,7 @@
 
 //Define http protocol & URL 
 define ("HTTP_PROTOCOL", "http://");
-define("URL",HTTP_PROTOCOL . "metaleris.com");
+define("URL",HTTP_PROTOCOL . "metaleris.com" . SEPARATOR);
 
 
 

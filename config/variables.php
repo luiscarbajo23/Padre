@@ -3,12 +3,12 @@
 define("SEPARATOR", "/");
 
 define("CONFIG_PATH", dirname(__DIR__) . SEPARATOR . "config" . SEPARATOR);
-define("CONTROLLERS_PATH", dirname(__DIR__) . SEPARATOR . "controllers" . SEPARATOR);
+define("CONTROLLERS_PATH", dirname(__DIR__) . SEPARATOR . "public" . SEPARATOR . "controllers" . SEPARATOR);
 define("DATA_PATH", dirname(__DIR__) . SEPARATOR . "data" . SEPARATOR);
 define("MODEL_PATH", dirname(__DIR__) . SEPARATOR . "model" . SEPARATOR);
 define("VIEWS_PATH", dirname(__DIR__) . SEPARATOR . "views" . SEPARATOR);
-define("CSS_PATH",dirname(__DIR__) . SEPARATOR . "css" . SEPARATOR );
-define("JAVASCRIPT_PATH",dirname(__DIR__) . SEPARATOR . "javascript" . SEPARATOR );
+define("CSS_PATH",dirname(__DIR__) . SEPARATOR . "public" . SEPARATOR . "css" . SEPARATOR );
+define("JAVASCRIPT_PATH",dirname(__DIR__) . SEPARATOR . "public" . SEPARATOR . "javascript" . SEPARATOR );
 
 
 //FILES

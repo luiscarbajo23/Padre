@@ -17,6 +17,8 @@ switch ($language) {
         define("CLIENTS_LIST", "Listado de clientes");
         define("INTRODUCE_ORDER", "Introducir Pedido");
         define("CONSULT", "CONSULTA");
+        define("CLIENT_ID", "Identificador");
+        define("CLIENT_NAME", "Nombre");
         break;
 
     //English default
@@ -29,6 +31,8 @@ switch ($language) {
         define("CLIENTS_LIST", "List of clients");
         define("INTRODUCE_ORDER", "Introduce order");
         define("CONSULT", "Consult");
+        define("CLIENT_ID", "Identifier");
+        define("CLIENT_NAME", "Nombre");
         break;
 }
 
@@ -38,6 +42,7 @@ switch ($language) {
 
 define("PASSWORD_VIEW", "Password");
 define("COMPANY_NAME", "Metaleris");
+
 
 
 
