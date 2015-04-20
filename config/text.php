@@ -32,7 +32,7 @@ switch ($language) {
         define("INTRODUCE_ORDER", "Introduce order");
         define("CONSULT", "Consult");
         define("CLIENT_ID", "Identifier");
-        define("CLIENT_NAME", "Nombre");
+        define("CLIENT_NAME", "Name");
         break;
 }
 

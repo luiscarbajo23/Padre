@@ -2,7 +2,8 @@
 
 <link rel="stylesheet" type="text/css" href="<?php echo URL . "css/clientsTable.css"?>">
 
-<div class="ClientsTable" >
+<div class="containerTable">
+    <div class="ClientsTable" style="alignment-adjust: auto; float: left; width: 49%;">
                 <table >
                     <tr>
                         <td>
@@ -26,4 +27,9 @@
                     <?php } ?>
               </table>
             </div>
+    <div class="VoidPart" style="alignment-adjust: auto; float: right; width: 49%;">
+        <p>HOLA TRONGO</p>
+    </div>
+    
+</div>
             
