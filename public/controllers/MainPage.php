@@ -79,8 +79,15 @@ class MainPage {
     
     private function showOrderRequired () {
         
+         require_once MODEL_PATH . 'ModelController.php';
+         
+         $modelController = new ModelController->getInstance();
+         
+         
+         $moldsToView = $modelController->loadMoldsInfoFromPieces(explode(",", filter_input(INPUT_POST, "orderText")));
         
-        
+         require_once VIEWS_PATH . 'orderView.php';
+         
     }
     
     private function showError ($error) {

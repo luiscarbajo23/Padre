@@ -21,6 +21,10 @@ switch ($language) {
         define("CONSULT", "CONSULTA");
         define("CLIENT_ID", "Identificador");
         define("CLIENT_NAME", "Nombre");
+        define("PRICE", "Precio");
+        define("MOLD", "Molde");
+        define("REFERENCE", "Referencia");
+        define("NO_EXISTS", "No Existe");
         break;
 
     //English default
@@ -37,6 +41,10 @@ switch ($language) {
         define("CONSULT", "Consult");
         define("CLIENT_ID", "Identifier");
         define("CLIENT_NAME", "Name");
+        define("PRICE", "Price");
+        define("MOLD", "Mold");
+        define("REFERENCE", "Reference");
+        define ("NO_EXISTS", "No Exists");
         break;
 }
 

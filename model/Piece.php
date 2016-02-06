@@ -31,7 +31,7 @@ class Piece {
     }
     
     public function setReference( $value ) {
-        $this->weight = $value;
+        $this->reference = $value;
     }
     
     public function getWeight() {

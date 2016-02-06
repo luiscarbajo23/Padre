@@ -20,11 +20,12 @@ class PieceList {
     public function __construct($arrayReferences) {
         
         foreach ($arrayReferences as $reference) {
-            
+
             $pieceAux = new Piece();
             $pieceAux->setReference($reference);
             
-            array_push($this->pieceList, $pieceAux);
+            $this->pieceList[$reference] = $pieceAux; 
+
         }
     }
     
@@ -37,14 +38,9 @@ class PieceList {
             array_push($arrayToRaw, $piece->getReference());
         }
         
-        $dataGetMoldsFromReferences = RawData::DataGetMoldsFromReferences($arrayToRaw);
-        
-        $this->refillPiecesList($dataGetMoldsFromReferences);
+        return RawData::DataGetMoldsFromReferences($arrayToRaw);
         
     }
     
-    private function refillPiecesList($dataGetMoldsFromReferences) {
-        
-        //To-Do 
-    }
+   
 }
