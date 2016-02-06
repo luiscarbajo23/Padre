@@ -16,6 +16,8 @@ switch ($language) {
         define("NOT_AUTHORIZED", "Fallo en autenticacion");
         define("CLIENTS_LIST", "Listado de clientes");
         define("INTRODUCE_ORDER", "Introducir Pedido");
+        define("INTRODUCE_ORDER_TEXT", "Introduzca las referencias separadas por comas");
+        define("SHOW_ORDER", "Muestra el pedido");
         define("CONSULT", "CONSULTA");
         define("CLIENT_ID", "Identificador");
         define("CLIENT_NAME", "Nombre");
@@ -30,6 +32,8 @@ switch ($language) {
         define("NOT_AUTHORIZED", "Fail in authentication");
         define("CLIENTS_LIST", "List of clients");
         define("INTRODUCE_ORDER", "Introduce order");
+        define("INTRODUCE_ORDER_TEXT", "Introduce the references separated by comas");
+        define("SHOW_ORDER", "Show the order");
         define("CONSULT", "Consult");
         define("CLIENT_ID", "Identifier");
         define("CLIENT_NAME", "Name");

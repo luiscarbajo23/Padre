@@ -27,12 +27,19 @@ class MainPage {
                             break;
 
                         case INTRODUCE_ORDER:
+                            
+                            $this->showOrdersView();
 
+                            break;
+                        
+                        case SHOW_ORDER:
+                            
+                            $this->showOrderRequired();
                             break;
 
                         case CONSULT:
 
-
+                            $this->showConsult();
                             break;
 
                         default:
@@ -58,6 +65,22 @@ class MainPage {
             
             $arrayClients = $clientList->getClientList();
             require_once VIEWS_PATH . 'clientsList.php';
+    }
+    
+    private function showConsult () {
+        
+        //To-DO Show TextArea to load all the pieces
+    }
+    
+    private function showOrdersView () {
+        
+        require_once VIEWS_PATH . 'introduceOrder.php';
+    }
+    
+    private function showOrderRequired () {
+        
+        
+        
     }
     
     private function showError ($error) {
