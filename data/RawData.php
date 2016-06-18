@@ -67,6 +67,8 @@ class RawData {
         $aux = [];
         
         while($row = mysql_fetch_array($result, MYSQL_ASSOC)) array_push($aux, $row);
+        
+        array_multisort($aux);
 
         return $aux;
     }

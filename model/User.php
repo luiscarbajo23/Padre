@@ -52,8 +52,6 @@ class User {
                 
             }
             
-            echo "Dale al password = $passAux\n";
-            
             $this->setPassword($passAux);
             
             return $passAux; 

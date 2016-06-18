@@ -9,6 +9,9 @@
                         <td>
                             <?php echo MOLD ?>
                         </td>
+                        <td>
+                            <?php echo SHELF ?>
+                        </td>
                         <td >
                             <?php echo REFERENCE ?>
                         </td>
@@ -23,10 +26,13 @@
                             <?php  echo ((!empty($struct["IDMOLDE"]) && $struct["IDMOLDE"] != "NULL") ?  str_replace('"','', $struct["IDMOLDE"]) : NO_EXISTS);?>
                         </td>
                         <td>
+                            
+                        </td>
+                        <td>
                             <?php echo $struct["IDPIEZA"]; ?>
                         </td>
                         <td>
-                            <?php  echo (!empty($struct["PRECIO"]) && ($struct["PRECIO"] != "NULL") ?  str_replace('"','', $struct["PRECIO"]) . "€" : NO_EXISTS);?>
+                            <?php echo (($struct["PRECIO"] != -1) && !empty($struct["PRECIO"]) && ($struct["PRECIO"] != "NULL") ?  str_replace('"','', $struct["PRECIO"]) . "€" : "0 €");?>
                         </td>
                     </tr>
                     

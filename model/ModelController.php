@@ -13,11 +13,11 @@ class ModelController {
     private static $modelController;
     
 
-    private function __construct() {}
+    public function __construct() {}
      
     public function  getInstance() {
        
-       if (is_null($this)) {
+       if (is_null($this->modelController)) {
            $this->modelController = new ModelController();
        }
        

@@ -6,13 +6,18 @@
  * @author LuisCarbajo
  */
 
+include_once DATA_PATH . 'MoldData.php';
 
 class Mold {
     
     private $idMold;
     private $shelf;
+    private $pieces;
     
-    public function __construct() {}
+    public function __construct($ID = -1) {
+        $this->idMold = $ID;
+        $this->pieces = NULL;
+    }
     
     public function getIDMold() {
         return $this->idMold;
@@ -28,5 +33,13 @@ class Mold {
     
     public function setShelf( $value ) {
         $this->shelf = $value;
+    }
+    
+    public function getPieces() {
+        
+        if (is_null($this->pieces)) $this->pieces = MoldData::getAllPiecesFromMold($this->idMold);
+       
+       return $this->pieces;
+
     }
 }

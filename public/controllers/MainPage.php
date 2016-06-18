@@ -37,9 +37,13 @@ class MainPage {
                             $this->showOrderRequired();
                             break;
 
-                        case CONSULT:
+                        case CONSULT_MOLD:
 
-                            $this->showConsult();
+                            $this->showPiecesByMoldView();
+                            break;
+                        
+                        case "MoldText":
+                            $this->showPiecesByMold();
                             break;
 
                         default:
@@ -67,9 +71,21 @@ class MainPage {
             require_once VIEWS_PATH . 'clientsList.php';
     }
     
-    private function showConsult () {
+    private function showPiecesByMold () {
         
-        //To-DO Show TextArea to load all the pieces
+        require_once MODEL_PATH . 'Mold.php';
+        
+        $mold = new Mold(filter_input(INPUT_POST, "MoldText"));
+        
+        try {
+                $arrayPieces = $mold->getPieces();
+            } catch (Exception $ex) {
+                $this->showError($ex);
+                die();
+            }
+            
+            require_once VIEWS_PATH . 'PiecesByMoldList.php';
+        
     }
     
     private function showOrdersView () {
@@ -81,7 +97,7 @@ class MainPage {
         
          require_once MODEL_PATH . 'ModelController.php';
          
-         $modelController = new ModelController->getInstance();
+         $modelController = new ModelController();
          
          
          $moldsToView = $modelController->loadMoldsInfoFromPieces(explode(",", filter_input(INPUT_POST, "orderText")));
@@ -101,7 +117,10 @@ class MainPage {
         //To-Do:Make a log (logger) system and a show system on frontend
     }
     
-    
+    private function showPiecesByMoldView () {
+        
+        require_once VIEWS_PATH . 'introduceMold.php';
+    }
     
     
 }

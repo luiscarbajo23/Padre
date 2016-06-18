@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 
-<link rel="stylesheet" type="text/css" href="<?php echo URL . "css/introduceOrder.css"?>">
+<link rel="stylesheet" type="text/css" href="<?php echo URL . "css/introduceMold.css"?>">
 
 <div class="containerTable">
     <div class="OrderTable" style="alignment-adjust: auto; float: left; width: 49%;">
-        <p><?php echo INTRODUCE_ORDER_TEXT ?></p>
+        <p><?php echo INTRODUCE_MOLD_TEXT ?></p>
         <form name="thisform" action="/MainPage/index" method="post">
-            <textarea id="orderText" class="text" cols="100" rows ="20" name="orderText"></textarea>
-            <input type="submit" name="actionTrigered" value="<?php echo SHOW_ORDER ?>" <?php echo SUBMIT_VIEW ?>>
+            <textarea id="MoldText" class="text" cols="15" rows ="1" name="MoldText"></textarea>
+            <input type="submit" name="actionTrigered" value="MoldText" <?php echo SUBMIT_VIEW ?>>
         </form>
     </div>
     <div class="VoidPart" style="alignment-adjust: auto; float: right; width: 49%;">

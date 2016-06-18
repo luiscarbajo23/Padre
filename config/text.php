@@ -25,6 +25,11 @@ switch ($language) {
         define("MOLD", "Molde");
         define("REFERENCE", "Referencia");
         define("NO_EXISTS", "No Existe");
+        define("SHELF", "Estanteria");
+        define("CONSULT_MOLD", "Piezas por molde");
+        define("INTRODUCE_MOLD_TEXT", "Introduce el identificador del molde");
+        define("SEND", "Enviar");
+        define("PIECE", "Pieza");
         break;
 
     //English default
@@ -45,6 +50,11 @@ switch ($language) {
         define("MOLD", "Mold");
         define("REFERENCE", "Reference");
         define ("NO_EXISTS", "No Exists");
+        define("SHELF", "Shelf");
+        define("CONSULT_MOLD", "Pieces by mold");
+        define("INTRODUCE_MOLD_TEXT", "Intruduce the mold identifier");
+        define("SEND", "Send");
+        define("PIECE", "Piece");
         break;
 }
 
