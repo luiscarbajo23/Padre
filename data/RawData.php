@@ -32,7 +32,7 @@ class RawData {
         mysql_close($mysql_link);
         
         
-        return RawData::buildResultFromOrder($result);
+        return RawData::buildResultFromOrder($result, $references);
 
     }
     
@@ -42,10 +42,11 @@ class RawData {
                         FROM MOLDES M 
                         RIGHT JOIN PIEZAS P 
                             ON M.IDPIEZA = P.IDPIEZA
-		WHERE M.IDPIEZA IN ('. implode(",",$references) .')
+		WHERE P.IDPIEZA IN ('. implode(",",$references) .')
                         UNION		
                         SELECT id as IDPIEZA, "NULL" as IDMOLDE, "NULL" as PRECIO
-                        FROM ('. RawData::getExtraSelects($references) .' ) a WHERE id NOT IN (SELECT IDPIEZA FROM PIEZAS)';
+                        FROM ('. RawData::getExtraSelects($references) .' ) a
+                        WHERE id NOT IN (SELECT IDPIEZA FROM PIEZAS)';
 
         
     }
@@ -62,17 +63,38 @@ class RawData {
         return $selects;
     }
     
-    private function buildResultFromOrder ($result) {
+    public function getPieceInfo($piece, $dbArray) {
         
-        $aux = [];
-        
-        while($row = mysql_fetch_array($result, MYSQL_ASSOC)) array_push($aux, $row);
-        
-        array_multisort($aux);
-
-        return $aux;
+        for ($i = sizeof($dbArray) - 1; $i >= 0 ; $i--) {
+            
+            if ($dbArray[$i]["IDPIEZA"] == $piece) {
+                return $dbArray[$i];
+            }
+        }
+        return -1;
     }
     
+    private function orderTheResultByReferencesOrder ($dbArray, $references) {
+        
+        $aux = array();
+        
+        foreach ($references as $piece) array_push($aux, RawData::getPieceInfo($piece,$dbArray));
+        
+        return $aux;
+        
+    }
+    
+    private function buildResultFromOrder ($result, $references) {
+        
+        $aux = [];
+
+        while($row = mysql_fetch_array($result, MYSQL_ASSOC)) array_push($aux, $row);
+
+        $auxSorted = RawData::orderTheResultByReferencesOrder ($aux,$references);
+        
+        return $auxSorted;
+    }
+
 }
 
 

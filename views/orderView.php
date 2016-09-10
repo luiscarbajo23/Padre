@@ -32,7 +32,7 @@
                             <?php echo $struct["IDPIEZA"]; ?>
                         </td>
                         <td>
-                            <?php echo (($struct["PRECIO"] != -1) && !empty($struct["PRECIO"]) && ($struct["PRECIO"] != "NULL") ?  str_replace('"','', $struct["PRECIO"]) . "€" : "0 €");?>
+                            <?php echo (($struct["PRECIO"] != -1) && !empty($struct["PRECIO"]) && ($struct["PRECIO"] != "NULL") ?  str_replace('"','', $struct["PRECIO"]) . "" : "0");?>
                         </td>
                     </tr>
                     
