@@ -24,6 +24,8 @@ class RawData {
 
         $query = RawData::getQuery($references);
         
+        
+        
         try {
             $result = mysql_db_query($db["database"], $query, $mysql_link);
         } catch (Exception $ex) {
@@ -38,13 +40,13 @@ class RawData {
     
     private function getQuery($references) {
         
-        return 'SELECT P.IDPIEZA, M.IDMOLDE, P.PRECIO
+        return 'SELECT P.IDPIEZA, M.IDMOLDE, P.PRECIO, M.ESTANTERIA
                         FROM MOLDES M 
                         RIGHT JOIN PIEZAS P 
                             ON M.IDPIEZA = P.IDPIEZA
 		WHERE P.IDPIEZA IN ('. implode(",",$references) .')
                         UNION		
-                        SELECT id as IDPIEZA, "NULL" as IDMOLDE, "NULL" as PRECIO
+                        SELECT id as IDPIEZA, "NULL" as IDMOLDE, "NULL" as PRECIO, "NULL" as ESTANTERIA
                         FROM ('. RawData::getExtraSelects($references) .' ) a
                         WHERE id NOT IN (SELECT IDPIEZA FROM PIEZAS)';
 

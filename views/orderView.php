@@ -26,7 +26,7 @@
                             <?php  echo ((!empty($struct["IDMOLDE"]) && $struct["IDMOLDE"] != "NULL") ?  str_replace('"','', $struct["IDMOLDE"]) : NO_EXISTS);?>
                         </td>
                         <td>
-                            
+                            <?php  echo ((!empty($struct["ESTANTERIA"]) && $struct["ESTANTERIA"] != "NULL") ?  str_replace('"','', str_replace("MOLDES", '',$struct["ESTANTERIA"])) : NO_EXISTS);?>
                         </td>
                         <td>
                             <?php echo $struct["IDPIEZA"]; ?>
